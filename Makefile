@@ -1,5 +1,5 @@
 run:
-	docker run -d -p 80:3000 --rm --name my-app allasydoriak/my-test-app
+	docker run -d -p 4200:80 --rm --name my-app allasydoriak/my-test-app
 stop:
 	docker stop my-app
 build:
