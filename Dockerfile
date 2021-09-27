@@ -1,7 +1,5 @@
 FROM node as build
 
-ARG PORT
-
 WORKDIR /app
 
 COPY package.json /app
