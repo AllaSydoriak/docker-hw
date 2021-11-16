@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Print node version
-        run: nove --version
+        run: node --version
 
       - uses: actions/setup-node@v2.4.1
         with:
