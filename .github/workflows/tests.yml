@@ -2,6 +2,7 @@ name: Run-Tests
 
 on:
   pull_request:
+  commit_comment:
     branches:
       - master
 
@@ -12,13 +13,13 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v2
 
-      - name: Print node version
-        run: node --version
-
-      - uses: actions/setup-node@v2.4.1
+      - name: Install node
+        uses: actions/setup-node@v2.4.1
         with:
           node-version: '14'
 
-      - run: npm install
+      - name: Install packages
+        run: npm install
       
-      - run: npm run test
+      - name: Run test
+        run: npm run test
