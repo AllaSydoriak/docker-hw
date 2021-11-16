@@ -2,7 +2,6 @@ name: Run-Tests
 
 on:
   pull_request:
-  commit_comment:
     branches:
       - master
 
