@@ -19,7 +19,7 @@ jobs:
         run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       
       - name: Create Docker image
-        run: docker build -t allasydoriak/my-test-app ..
+        run: docker build -t allasydoriak/my-test-app ../../
 
       - name: Push image to Docker Hub
         run: docker push allasydoriak/my-test-app
