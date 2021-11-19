@@ -1,11 +1,9 @@
 name: Deploy
 
-#on:
-#  release:
-#    types:
-#      - created
-
-on: [push, pull_request]
+on:
+  release:
+    types:
+      - created
 
 jobs:
   build:
