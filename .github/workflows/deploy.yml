@@ -23,9 +23,8 @@ jobs:
       
       - run: ls -a
 
-      - run: |
-        cd .github/
-        ls -a
+      - run: cd .github/
+      - run: ls -a
 
       - name: Create Docker image
         run: docker build -t allasydoriak/my-test-app ../../
