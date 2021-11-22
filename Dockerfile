@@ -1,4 +1,4 @@
-FROM node:14 as build
+FROM node:14-alpine as build
 
 WORKDIR /app
 
@@ -15,6 +15,6 @@ FROM nginx
 COPY --from=build /app/build /usr/share/nginx/html
 COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE $PORT
+EXPOSE 8003
 
-CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
+CMD sed -i -e 's/8003/'"8003"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
