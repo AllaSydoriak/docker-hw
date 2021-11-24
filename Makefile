@@ -1,7 +1,7 @@
 run:
 	docker run -d -p 8003:8003 --rm --name alla allasydoriak/my-test-app:latest
 stop:
-	docker stop my-app
+	docker stop alla
 build:
 	docker build -t allasydoriak/my-test-app .
 remove:
