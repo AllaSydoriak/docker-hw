@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Docker login
-        run: docker login -u ${{ DOCKER_USER }} -p ${{ DOCKER_PASSWORD }}
+        run: docker login -u ${{ env.DOCKER_USER }} -p ${{ env.DOCKER_PASSWORD }}
 
       - name: Create Docker image
         run: docker build -t allasydoriak/my-test-app .
@@ -36,11 +36,11 @@ jobs:
       - name: Connect to server and run new docker container
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ SERVER_HOST }}
-          username: ${{ SERVER_USERNAME }}
-          password: ${{ SERVER_PASSWORD }}
+          host: ${{ env.SERVER_HOST }}
+          username: ${{ env.SERVER_USERNAME }}
+          password: ${{ env.SERVER_PASSWORD }}
           script: |
-            docker login -u ${{ DOCKER_USER }} -p ${{ DOCKER_PASSWORD }}
+            docker login -u ${{ env.DOCKER_USER }} -p ${{ env.DOCKER_PASSWORD }}
             docker stop alla
             docker rmi allasydoriak/my-test-app:latest
             docker pull allasydoriak/my-test-app:latest
