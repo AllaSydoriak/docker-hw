@@ -41,8 +41,8 @@ jobs:
           password: ${{ env.SERVER_PASSWORD }}
           script: |
             docker login -u ${{ env.DOCKER_USER }} -p ${{ env.DOCKER_PASSWORD }}
-            docker stop alla
-            docker rmi allasydoriak/my-test-app:latest
             docker pull allasydoriak/my-test-app:latest
+            docker stop alla
             docker run -d -p 8003:8003 --rm --name alla allasydoriak/my-test-app:latest
+            docker logout
 
